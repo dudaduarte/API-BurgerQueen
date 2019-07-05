@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     Products.hasMany(models.OrderProduct)
   };
 
-
   //    Products.create({
   //    name: 'Café Americano',
   //    price: 5,

@@ -26,7 +26,7 @@ router.delete("/:id", (req, resp) => {
   Products.destroy({
     where: { id: req.params.id },
   }).then(() => {
-    resp.status(200).send(`Deletado o produto de id ${req.params.id}`);
+    resp.status(200).send(`Deletado o produto de id ${req.params.id}.`);
   });
 });
 
@@ -37,9 +37,13 @@ router.post("/", (req, resp) => {
 });
 
 router.put("/:id", (req, resp) => {
-  Products.update({ ...req.body }, { where: { id: req.params.id } }).then(() => {
-    Products.findByPk(req.params.id).then(product => resp.send(product.dataValues));
-  });
+  Products.update({ ...req.body }, { where: { id: req.params.id } }).then(
+    () => {
+      Products.findByPk(req.params.id).then(product =>
+        resp.send(product.dataValues)
+      );
+    }
+  );
 });
 
 module.exports = router;

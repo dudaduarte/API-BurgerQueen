@@ -19,19 +19,11 @@ router.get("/:id", (req, resp) => {
   });
 });
 
-// router.get("/:name", (req, resp) => {
-//   User.findAll({
-//     where: { name: req.params.name },
-//   }).then(users => {
-//     resp.send(users);
-//   });
-// });
-
 router.delete("/:id", (req, resp) => {
   User.destroy({
     where: { id: req.params.id },
   }).then(() => {
-    resp.status(200).send(`Deletado o usuário de id ${req.params}`);
+    resp.status(200).send(`Deletado o usuário de id ${req.params}.`);
   });
 });
 

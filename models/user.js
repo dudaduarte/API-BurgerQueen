@@ -7,11 +7,5 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     User.hasMany(models.Orders)
   };
-
-    // User.create({
-    //   name: 'cynara',
-    //   email: 'cynara@gmail.com'
-    // })
-
   return User;
 };
